@@ -12,7 +12,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-CONFIG_FILE = Path.home() / ".dotfile_manager.json"
+CONFIG_FILE = Path.home() / ".dotman.json"
 
 
 def load_config() -> dict:
@@ -281,37 +281,37 @@ def parse_args() -> argparse.Namespace:
         epilog="""
 Examples:
   # Backup ~/.config to ~/dotfile_backups/
-  python dotfile_manager.py backup
+  python dotman.py backup
 
   # Backup a custom config directory
-  python dotfile_manager.py backup --source ~/my_configs
+  python dotman.py backup --source ~/my_configs
 
   # Backup to a custom destination
-  python dotfile_manager.py backup --dest /mnt/usb/backups
+  python dotman.py backup --dest /mnt/usb/backups
 
   # Backup and push to a GitHub repo
-  python dotfile_manager.py backup --remote git@github.com:user/dotfiles.git
+  python dotman.py backup --remote git@github.com:user/dotfiles.git
 
   # Backup to a custom destination and push remotely
-  python dotfile_manager.py backup --dest /mnt/usb/backups --remote git@github.com:user/dotfiles.git
+  python dotman.py backup --dest /mnt/usb/backups --remote git@github.com:user/dotfiles.git
 
   # Only back up specific subdirectories (whitelist) — saves for future runs
-  python dotfile_manager.py backup --include nvim git fish
+  python dotman.py backup --include nvim git fish
 
   # Back up everything except certain subdirectories (blacklist) — saves for future runs
-  python dotfile_manager.py backup --exclude chromium BraveSoftware
+  python dotman.py backup --exclude chromium BraveSoftware
 
   # Use a filter for this run only, without saving it
-  python dotfile_manager.py backup --include nvim --no-save
+  python dotman.py backup --include nvim --no-save
 
   # Clear the saved filter
-  python dotfile_manager.py clear-filter
+  python dotman.py clear-filter
 
   # List all backups
-  python dotfile_manager.py list
+  python dotman.py list
 
   # Restore a specific backup
-  python dotfile_manager.py restore ~/dotfile_backups/dotfiles_backup_20260418_120000
+  python dotman.py restore ~/dotfile_backups/dotfiles_backup_20260418_120000
         """,
     )
 
